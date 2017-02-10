@@ -60,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">Teste Laravel</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -70,10 +70,8 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <ul class="dropdown-menu dropdown-user">                        
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Permissões</a>
                         </li>
                         <li class="divider"></li>
 
@@ -102,10 +100,10 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Estados<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="active" href="{{ URL::to('estados') }}">Listar</a>
+                                    <a class="active" href="{{ URL('estados') }}">Listar</a>
                                 </li>
                                 <li>
-                                    <a class="active" href="{{ URL::to('estados/create') }}">Cadastrar</a>
+                                    <a class="active" href="{{ URL('estados/create') }}">Cadastrar</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -124,11 +122,6 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">{{ $page }}</h1>
                     </div>
-                    
-                <!-- will be used to show any messages -->
-                @if (Session::has('message'))
-                    <div class="alert alert-info">{{ Session::get('message') }}</div>
-                @endif
 
                 @yield('content')
 

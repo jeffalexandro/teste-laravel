@@ -4,8 +4,7 @@
 
 <!-- if there are creation errors, they will show here -->
 
-	<form method="PUT" class="form-horizontal" action="{{ url('estados') }}" role="form">
-		{{ csrf_field() }}
+	{!! Form::model($estado, ['method' => 'PATCH','route' => ['estados.update', $estado->id], 'class' => 'form-horizontal']) !!}		
 
 		<div class="row">
 	        <div class="col-md-12">
@@ -41,12 +40,22 @@
 				        </div>
 
 	                </div>
-	                <div class='panel-footer '>
-			        	<input type='submit' class='btn btn-primary' name='cadastrar_estado' value='Salvar' />
+	                <div class='panel-footer'>
+	                	
+	                	<div class="pull-right">
+
+	                		<a class="btn btn-default" href="{{ url('estados') }} "><i class="fa fa-angle-left"></i> Voltar</a>	                	
+				        	<button type='submit' class='btn btn-primary'><i class="fa fa-check"></i> Salvar</button>
+				        	
+				        	
+				        </div>
+
+			        	<div class="clearfix"></div>
 			        </div>
 	            </div>
 	        </div>
 	    </div>
-	</form>
+	
+	{!! Form::close() !!}
 
 @endsection

@@ -10,7 +10,9 @@
 		<div class="row">
 	        <div class="col-md-12">
 	            <div class="panel panel-default">
-	                <div class="panel-heading">Cadastrar novo estado</div>
+	                <div class="panel-heading">
+	                	Cadastrar novo estado	                	
+	                </div>
 
 	                <div class="panel-body">
 
@@ -41,8 +43,15 @@
 				        </div>
 
 	                </div>
-	                <div class='panel-footer '>
-			        	<input type='submit' class='btn btn-primary' name='cadastrar_estado' value='Salvar' />
+	                <div class='panel-footer'>			        			        		
+	                	<div class="pull-right">
+
+	                		<a class="btn btn-default" href="{{ url('estados') }} "><i class="fa fa-angle-left"></i> Voltar</a>	                	
+				        	<button type='submit' class='btn btn-primary'><i class="fa fa-check"></i> Salvar</button>				        	
+
+				        </div>
+
+				        <div class="clearfix"></div>
 			        </div>
 	            </div>
 	        </div>

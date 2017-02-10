@@ -70,7 +70,7 @@ class EstadoController extends Controller
             $estado->save();
 
             // redirect
-            // Session::flash('message', 'Successfully created estado!');
+            $request->session()->flash('message', 'Estado criado com sucesso!');
             return redirect('estados');
         }
     }
@@ -84,11 +84,12 @@ class EstadoController extends Controller
     public function show(Estado $estado)
     {
 
-        // show the view and pass the nerd to it
+        // show the view and pass the estado to it
         return view('estados.show')
             ->with('estado', $estado)
             ->with('page', 'Detalhes Estado');
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -103,6 +104,7 @@ class EstadoController extends Controller
             ->with('page', 'Editar Estado');
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -112,8 +114,31 @@ class EstadoController extends Controller
      */
     public function update(Request $request, Estado $estado)
     {
-        //
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'nome'       => 'required',
+            'sigla'      => 'required',
+        );
+        $validator = Validator($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect('estados/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput($request->except('password'));
+        } else {
+            // store            
+            $estado->nome       = $request->get('nome');
+            $estado->sigla      = $request->get('sigla');
+            $estado->save();
+
+            // redirect
+            $request->session()->flash('message', 'Estado atualizado com sucesso!');
+            return Redirect('estados');
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -121,8 +146,12 @@ class EstadoController extends Controller
      * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estado $estado)
+    public function destroy(Request $request, Estado $estado)
     {
-        //
+        $estado->delete();
+
+        // redirect
+        $request->session()->flash('message', 'Estado deletado com sucesso!');
+        return Redirect('estados');
     }
 }

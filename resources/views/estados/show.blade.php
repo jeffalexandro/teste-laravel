@@ -35,11 +35,18 @@
             			{{ $estado->updated_at }}
             		</div>
             	</div>
-            	</div>
+        	</div>
+            <div class='panel-footer'>
+                
+                <div class="pull-right">
 
+                    <a class="btn btn-default" href="{{ url('estados') }} "><i class="fa fa-angle-left"></i> Voltar</a>                     
+                    
+                </div>
+
+                <div class="clearfix"></div>
             </div>
-	    </div>
+        </div>
     </div>
 </div>
-
 @endsection
