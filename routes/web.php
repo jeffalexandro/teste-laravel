@@ -17,7 +17,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'EstadoController@index');
+Route::get('/home', 'EstadoController@index');
 
-Route::resource('estados', 'EstadoController');
+Route::resource('/estados', 'EstadoController');
